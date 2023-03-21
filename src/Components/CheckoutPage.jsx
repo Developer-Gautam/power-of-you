@@ -1,14 +1,18 @@
 import React from 'react';
 
+
 function CheckoutPage({ cart, removeFromCart, subtotal, discount, total }) {
   return (
-    <div>
-      <h2>Cart</h2>
+    <div className='addToCart'>
+      <h2>Checkout</h2>
       <div className='main'>
         {cart.map(item => (
-          <div key={item.id}>
+          <div className='cartCard' key={item.id}>
             {item.name} - {item.price}
-            <button onClick={() => removeFromCart(item)}>Remove</button>
+            <div className="quantity">
+              <span className='plus'>+</span><span></span>1<span className='minus'>-</span>
+            </div>
+            <button onClick={() => removeFromCart(item)}><i class="material-icons">cancel</i></button>
           </div>
         ))}
       </div>

@@ -12,13 +12,17 @@ function SearchResultsPage({ category, addToCart }) {
 
   return (
     <div>
-      <h2>Search Results for {category}</h2>
+      <h2 className='searchHeading'>Search Results for {category}</h2>
       <div className='main'>
         {products.map(product => (
-          <div key={product.id}>
-            {/* <img src={product.img} alt="" width={200}/> */}
-            {product.name} - {product.available >= 10 ? "Available" : product.available} available
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+          
+          <div className='card' key={product.id}>
+            <img src={product.img} alt="" width={200}/>
+           <div className='info'> {product.name} - {product.available >= 10 ? "Available" : product.available} available
+            <div className="buttons">
+            <button className='heartButton'><i className="fa fa-heart"></i></button>
+            <button className='cartButton' onClick={() => addToCart(product)}><i className=" fa fa-shopping-cart"></i></button></div>
+            </div>
           </div>
         ))}
       </div>
